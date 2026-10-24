@@ -1,1 +1,1 @@
-# git-team-lab
+# git-team-labСтрока добавлена разработчиком Bob
