@@ -131,7 +131,7 @@ def load_telemetry(uploaded_file) -> pd.DataFrame | None:
 
         # Педали: если макс ≤ 1.5 → шкала 0–1, переводим в 0–100%
         for col in ("THROTTLE", "BRAKE"):
-            if df[col].max() <= 1.0:
+            if df[col].max() <= 1.5:
                 df[col] = df[col] * 100
 
         # ── 10. Интерполяция на единую шкалу дистанции ──
