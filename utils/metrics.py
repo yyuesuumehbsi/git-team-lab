@@ -25,7 +25,7 @@ def compute_sector_metrics(
 ) -> dict | None:
     """
     Для заданного сектора вычисляет:
-      - braking_point: первая дистанция, где BRAKE > 10%
+      - braking_point: первая дистанция, где BRAKE > 5%
       - min_speed: минимальная скорость от точки торможения до конца сектора
       - mini_table: DataFrame из 10 равноотстоящих точек (Distance, Speed, Brake, Throttle, Steer)
     Возвращает словарь или None, если торможение не обнаружено.
@@ -34,7 +34,7 @@ def compute_sector_metrics(
     if sector.empty:
         return None
 
-    # Точка начала торможения (BRAKE > 10%)
+    # Точка начала торможения (BRAKE > 5%)
     braking = sector[sector["BRAKE"] > 5]
     if braking.empty:
         braking_point = sector_start
